@@ -11,7 +11,7 @@
   - 점포 추가 API
   POST /v1/stores
   request body
-    <pre><code>{
+  <pre><code>{
   "name": "인어수산2",
   "owner": "장인어",
   "description": "인천소래포구 종합어시장 갑각류센터 인어수산",
