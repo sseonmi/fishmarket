@@ -1,15 +1,11 @@
 package com.test.fishmarket.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.Locale;
-import java.util.TimeZone;
+import java.time.LocalTime;
 
 @Builder
 @Entity
@@ -20,16 +16,21 @@ import java.util.TimeZone;
 public class BusinessTimes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonIgnore
     private Long id;
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "stores_id")
+    @JoinColumn(name = "business_times_id")
+    @JsonIgnore
     private Stores stores;
     @Enumerated(EnumType.STRING)
     private Day day;
-    @Temporal(TemporalType.TIMESTAMP)
+    @Column
     @JsonFormat(pattern = "HH:mm")
-    private Date open;
-    @Temporal(TemporalType.TIMESTAMP)
+    private LocalTime open;
+    @Column
     @JsonFormat(pattern = "HH:mm")
-    private Date close;
+    private LocalTime close;
+
+    @Setter
+    private BusinessStatus businessStatus;
 }

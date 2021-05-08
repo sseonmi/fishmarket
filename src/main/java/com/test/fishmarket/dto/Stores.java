@@ -29,11 +29,11 @@ public class Stores {
     @Setter
     private BusinessStatus businessStatus;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "stores_id")
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn
     private Set<BusinessTimes> businessTimes;
 
-    @OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
-    @JoinColumn(name = "stores_id")
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn
     private Set<StoreHolidays> storeHolidays;
 }

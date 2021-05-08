@@ -1,12 +1,13 @@
 package com.test.fishmarket.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Builder
 @Entity
@@ -17,10 +18,12 @@ import java.util.Date;
 public class StoreHolidays {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonIgnore
     private Long id;
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "stores_id")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "store_holidays_id")
+    @JsonIgnore
     private Stores stores;
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date date;
+    @Column
+    private LocalDate date;
 }
