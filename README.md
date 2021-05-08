@@ -1,12 +1,17 @@
 # fishmarket
 
 1. 설치 및 환경설정 가이드
+  java v11.0.x
+  spring boot v2.4.5
+  build gradle
+  
 2. 테이블 자동 생성
 
 3. API List
-  점포 추가 API
+  - 점포 추가 API
   POST /v1/stores
-  <pre><code>{{
+  request body
+  <pre><code>{
   "name": "인어수산2",
   "owner": "장인어",
   "description": "인천소래포구 종합어시장 갑각류센터 인어수산",
@@ -45,12 +50,20 @@
       "close": "15:00"
     }
   ]
-}}</code></pre>
+}</code></pre>
   
- 
-  
-  점포 휴무일 등록 API
-  
-  점포 목록 조회 API
-  
-  점포상세정보조회API
+  - 점포 휴무일 등록 API
+    POST /v1/stores/holidays
+    request body
+    <code><pre>
+    {"id": 1, "holidays": [
+"2021-05-07",
+"2021-05-08" ]
+}
+    </code></pre>
+  - 점포 목록 조회 API
+    GET /v1/stores
+    
+    
+  - 점포상세정보조회API
+    GET /v1/stores/{id}
