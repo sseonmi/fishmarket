@@ -22,15 +22,18 @@ public class Stores {
     @Column(nullable = false)
     private String phone;
     @Column(nullable = false)
-    private int grade;
+    private int level;
     @Column
     private String description;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "business_times_id")
+    @Setter
+    private BusinessStatus businessStatus;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "stores_id")
     private Set<BusinessTimes> businessTimes;
 
-    @OneToMany(cascade = CascadeType.REMOVE)
-    @JoinColumn(name = "store_holidays_id")
+    @OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    @JoinColumn(name = "stores_id")
     private Set<StoreHolidays> storeHolidays;
 }

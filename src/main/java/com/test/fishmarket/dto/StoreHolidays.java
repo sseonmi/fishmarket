@@ -18,7 +18,7 @@ public class StoreHolidays {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "stores_id")
     private Stores stores;
     @Temporal(TemporalType.TIMESTAMP)

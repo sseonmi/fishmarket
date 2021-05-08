@@ -13,12 +13,13 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(value = "/v1/stores")
 public class StoresController {
+
     private final StoresRepository storesRepository;
     @Autowired
     private StoresService storesService;
 
-    @GetMapping
-    public ResponseEntity<?> getStore(@RequestParam Long id) throws Exception {
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getStore(@PathVariable("id") Long id) throws Exception {
         return new ResponseEntity<>(storesService.getStore(id),HttpStatus.OK);
     }
 
