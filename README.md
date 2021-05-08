@@ -1,9 +1,9 @@
 # fishmarket
 
-1. 설치 및 환경설정 가이드
-  java v11.0.x
-  spring boot v2.4.5
-  build gradle
+1. 설치 및 환경설정
+  - java v11.0.x
+  - spring boot v2.4.5
+  - build gradle
   
 2. 테이블 자동 생성
 
