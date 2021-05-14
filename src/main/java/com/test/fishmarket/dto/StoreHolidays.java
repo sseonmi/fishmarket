@@ -20,7 +20,7 @@ public class StoreHolidays {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonIgnore
     private Long id;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "store_holidays_id")
     @JsonIgnore
     private Stores stores;

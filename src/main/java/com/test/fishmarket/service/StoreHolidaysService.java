@@ -1,6 +1,7 @@
 package com.test.fishmarket.service;
 import com.test.fishmarket.controller.StoreHolidaysController;
 import com.test.fishmarket.dto.StoreHolidays;
+import com.test.fishmarket.dto.Stores;
 import com.test.fishmarket.repository.StoreHolidaysRepository;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +20,7 @@ public class StoreHolidaysService {
     public List<StoreHolidays> setHolidays(StoreHolidaysController.StoreHolidayReq holidays) {
         List<StoreHolidays> holiday = new ArrayList<>();
         for (LocalDate h: holidays.getHolidays()) {
-            holiday.add(StoreHolidays.builder().id(holidays.getId()).date(h).build());
+            holiday.add(StoreHolidays.builder().stores(Stores.builder().id(holidays.getId()).build()).date(h).build());
         }
         return storesRepository.saveAll(holiday);
     }

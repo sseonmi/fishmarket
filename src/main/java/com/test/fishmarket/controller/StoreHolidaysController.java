@@ -12,7 +12,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping(value = "/v1/holiday")
+@RequestMapping(value = "/v1/stores/holidays")
 public class StoreHolidaysController {
     @Autowired
     private StoreHolidaysService storeHolidaysService;
